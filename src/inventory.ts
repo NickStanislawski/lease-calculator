@@ -1,0 +1,260 @@
+import type { Vehicle } from "./App";
+
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+export const INVENTORY: Record<string, Vehicle> = {
+  T93947: {
+    vin: "3GCUKFED4TG393947",
+    year: 2026,
+    make: "Chevrolet",
+    model: "Silverado 1500",
+    trim: "LT Trail Boss",
+    msrp: 69724,
+    dealerDiscount: 5577, // City Savings (Manager Special not listed for this one)
+    leasePrograms: {
+      GMF: {
+        24: { mf: 0.00125, res: 60 },
+        27: { mf: 0.00125, res: 58 },
+        36: { mf: 0.00125, res: 53 },
+        39: { mf: 0.00125, res: 51 },
+      },
+      Ally: {
+        24: { mf: 0.002, res: 58 },
+        27: { mf: 0.002, res: 56 },
+        36: { mf: 0.002, res: 51 },
+        39: { mf: 0.002, res: 49 },
+      },
+      USBank: {
+        24: { mf: 0.0018, res: 59 },
+        27: { mf: 0.0018, res: 57 },
+        36: { mf: 0.0018, res: 52 },
+        39: { mf: 0.0018, res: 50 },
+      },
+    },
+    rebates: [
+      {
+        id: "costco",
+        name: "Costco Member Bonus",
+        amount: 1000,
+        programs: ["GMF", "Ally", "USBank"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "gmf-loyalty",
+        name: "GMF Lease Loyalty",
+        amount: 1000,
+        programs: ["GMF"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "customer-cash",
+        name: "Customer Cash",
+        amount: 4250,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+      {
+        id: "bonus-cash",
+        name: "Bonus Cash",
+        amount: 1750,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+    ],
+  },
+  T92788: {
+    vin: "1GCUKEED6TZ292788",
+    year: 2026,
+    make: "Chevrolet",
+    model: "Silverado 1500",
+    trim: "RST",
+    msrp: 63899,
+    dealerDiscount: 5111 + 2000, // City Savings + Select Unit Discount
+    leasePrograms: {
+      GMF: {
+        24: { mf: 0.00125, res: 59 },
+        27: { mf: 0.00125, res: 57 },
+        36: { mf: 0.00125, res: 52 },
+        39: { mf: 0.00125, res: 50 },
+      },
+      Ally: {
+        24: { mf: 0.002, res: 57 },
+        27: { mf: 0.002, res: 55 },
+        36: { mf: 0.002, res: 50 },
+        39: { mf: 0.002, res: 48 },
+      },
+      USBank: {
+        24: { mf: 0.0018, res: 58 },
+        27: { mf: 0.0018, res: 56 },
+        36: { mf: 0.0018, res: 51 },
+        39: { mf: 0.0018, res: 49 },
+      },
+    },
+    rebates: [
+      {
+        id: "costco",
+        name: "Costco Member Bonus",
+        amount: 1000,
+        programs: ["GMF", "Ally", "USBank"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "gmf-loyalty",
+        name: "GMF Lease Loyalty",
+        amount: 1000,
+        programs: ["GMF"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "customer-cash",
+        name: "Customer Cash",
+        amount: 4250,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+      {
+        id: "bonus-cash",
+        name: "Bonus Cash",
+        amount: 1750,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+    ],
+  },
+  T94073: {
+    vin: "1GCUKGED3TZ294073",
+    year: 2026,
+    make: "Chevrolet",
+    model: "Silverado 1500",
+    trim: "LTZ",
+    msrp: 67879,
+    dealerDiscount: 5430 + 570 + 2000, // City Savings + Manager Special + Select Unit Discount
+    leasePrograms: {
+      GMF: {
+        24: { mf: 0.00125, res: 60 },
+        27: { mf: 0.00125, res: 58 },
+        36: { mf: 0.00125, res: 53 },
+        39: { mf: 0.00125, res: 51 },
+      },
+      Ally: {
+        24: { mf: 0.002, res: 58 },
+        27: { mf: 0.002, res: 56 },
+        36: { mf: 0.002, res: 51 },
+        39: { mf: 0.002, res: 49 },
+      },
+      USBank: {
+        24: { mf: 0.0018, res: 59 },
+        27: { mf: 0.0018, res: 57 },
+        36: { mf: 0.0018, res: 52 },
+        39: { mf: 0.0018, res: 50 },
+      },
+    },
+    rebates: [
+      {
+        id: "costco",
+        name: "Costco Member Bonus",
+        amount: 1000,
+        programs: ["GMF", "Ally", "USBank"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "gmf-loyalty",
+        name: "GMF Lease Loyalty",
+        amount: 1000,
+        programs: ["GMF"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "customer-cash",
+        name: "Customer Cash",
+        amount: 4250,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+      {
+        id: "bonus-cash",
+        name: "Bonus Cash",
+        amount: 1750,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+    ],
+  },
+  T88516: {
+    vin: "1GNS6TKL4TR288516",
+    year: 2026,
+    make: "Chevrolet",
+    model: "Tahoe",
+    trim: "High Country",
+    msrp: 101555,
+    dealerDiscount: 5077,
+    leasePrograms: {
+      GMF: {
+        24: { mf: 0.00125, res: 57 },
+        27: { mf: 0.00125, res: 55 },
+        36: { mf: 0.00125, res: 50 },
+        39: { mf: 0.00125, res: 48 },
+      },
+      Ally: {
+        24: { mf: 0.002, res: 55 },
+        27: { mf: 0.002, res: 53 },
+        36: { mf: 0.002, res: 48 },
+        39: { mf: 0.002, res: 46 },
+      },
+      USBank: {
+        24: { mf: 0.0018, res: 56 },
+        27: { mf: 0.0018, res: 54 },
+        36: { mf: 0.0018, res: 49 },
+        39: { mf: 0.0018, res: 47 },
+      },
+    },
+    rebates: [
+      {
+        id: "costco",
+        name: "Costco Member Bonus",
+        amount: 1000,
+        programs: ["GMF", "Ally", "USBank"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "gmf-loyalty",
+        name: "GMF Lease Loyalty",
+        amount: 1000,
+        programs: ["GMF"],
+        type: "lease-only",
+        requiresQualification: true,
+      },
+      {
+        id: "customer-cash",
+        name: "Customer Cash",
+        amount: 0,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+      {
+        id: "bonus-cash",
+        name: "Bonus Cash",
+        amount: 0,
+        programs: ["Ally", "USBank"],
+        type: "retail-only",
+        requiresQualification: false,
+      },
+    ],
+  },
+};
